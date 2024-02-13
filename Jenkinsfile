@@ -12,11 +12,6 @@ pipeline {
 		sh 'mvn package'
 		}	
 	}
-	stage ('archiving artifacts') {
-steps {
-archiveArtifacts artifacts: 'target/*.jar', followSymlinks: false
-}
-}
 stage ('junit test results'){
 steps {
 junit stdioRetention: '', testResults: 'target/surefire-reports/*.xml'
